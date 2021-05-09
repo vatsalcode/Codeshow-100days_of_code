@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t>0)
+  {
+	    int n;
+	    cin>>n;
+	    string str;
+	    int count=0;    
+	    for(int j=0;j<n;j++)
+      {
+	        string str1;    
+	        cin>>str1;
+	        if(j==0)
+          {
+	            str=str1;   
+	        }
+	        else
+          {
+	            for(int i=0;i<10;i++)
+              {
+	            if((str[i]=='1')&&(str1[i]=='1'))
+              {
+	                str[i]='0';
+	            }
+	            else if((str1[i]=='1')&&(str[i]=='0'))
+              {
+	                str[i]='1';
+	            }
+	        }
+	        }
+	    }
+	    for(int i=0;i<10;i++)
+      {	       
+	        if(str[i]=='1')
+          {
+	            count++;
+	        }
+	    }
+	    cout<<count<<endl;
+	    t=t-1;
+	}
+	return 0;
+}
