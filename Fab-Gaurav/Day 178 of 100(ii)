@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        sort(a,a+n);
+        int p=n/4;
+        int x=a[p];
+        int y=a[2*p];
+        int z=a[3*p];
+        if(x==a[p-1]||y==a[2*p-1] || z==a[3*p-1]){
+            cout<<-1<<endl;
+        }
+        else cout<<x<<" "<<y<<" "<<z<<endl;
+    }
+}
