@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t-->0)
+	{
+	    long int income,ni,tax=0,a;
+	    cin>>income;
+	    a=income;
+	    while(a>0)
+	   {    int r=0;
+	       if(a<=250000)
+	    {   
+	        tax=tax+0;
+	        a=a-250000;
+	    }else
+	    if(a>250000&&a<=500000)
+	    {
+	        r=a-250000;
+	        tax=tax+(0.05*r);
+	        a=a-r;
+	    }
+	    else
+	    if(a>500000&&a<=750000)
+	    {
+	        r=a-500000;
+	        tax=tax+(0.1*r);
+	        a=a-r;
+	    }else
+	    if(a>750000&&a<=1000000)
+	    {
+	        r=a-750000;
+	        tax=tax+(0.15*r);
+	        a=a-r;
+	    }else
+	    if(a>1000000&&a<=1250000)
+	    {
+	        r=a-1000000;
+	        tax=tax+(0.2*r);
+	        a=a-r;
+	    }else
+	    if(a>1250000&&a<=1500000)
+	    {
+	        r=a-1250000;
+	        tax=tax+(0.25*r);
+	        a=a-r;
+	    }else
+	    if(a>1500000)
+	    {
+	        r=a-1500000;
+	        tax=tax+(0.3*r);
+	        a=a-r;
+	    }
+	   }
+	   ni=income-tax;
+	   cout<<ni<<endl;;
+	}
+	return 0;
+}
