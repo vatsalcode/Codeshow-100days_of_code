@@ -1,0 +1,11 @@
+t=int(input())
+for i in range(t):
+    N,M,K=map(int,input().split())
+    for j in range(K):
+        
+        if N>M :         
+            M+=1
+        elif M>N:
+            N+=1
+    else :
+        print(max(N,M)-min(N,M))
