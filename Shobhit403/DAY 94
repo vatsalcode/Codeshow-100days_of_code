@@ -1,0 +1,83 @@
+#include<bits/stdc++.h>
+#define ll long long
+#define ull unsigned long long
+#define ULmax ULLONG_MAX
+#define ULmin ULLONG_MIN
+#define Lmax LLONG_MAX
+#define Lmin LLONG_MIN
+#define pb push_back
+using namespace std;
+bool isPrime(ll n)
+{
+    if(n==1) return false;
+    for(ll i=2;i*i<=n;i++)
+    {
+        if(n%i == 0) return false;
+    }
+    return true;
+}
+ll gcd(ll a,ll b)
+{
+    if(b==0) return a;
+    return gcd(b,a%b);    
+}
+ll nCr(ll n, ll r)
+{
+ ll p = 1, k = 1;
+ r = min(r,n-r);
+    while (r!=0)
+    {
+        p *= n;
+        k *= r;
+        ll m = gcd(p, k);
+        p /= m;
+        k /= m;
+        n--;
+        r--;
+    }
+ return p;
+}
+ll nCrM(ll n,ll r)
+{
+    vector<vector<ll>> dp(n+1,vector<ll>(n+1));
+    for(ll i=1;i<=n;i++)
+    {
+        dp[i][i] = 1;
+    }  
+    for(ll i=1;i<=n;i++) dp[i][0]=1;
+    for(ll i=2;i<=n;i++)
+    {
+        for(ll j=1;j<=i-1;j++)
+        {
+            dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
+        }
+    }
+    return dp[n][r];
+}
+void solve()
+{
+    ll ans,n,lcm;
+    cin>>n;
+    vector<ll> a(n);
+    for(ll i=0;i<n;i++) cin>>a[i];
+    ans=Lmax;
+    for(ll i=0;i<n-1;i++){
+        for(ll j=i+1;j<n;j++){
+            lcm = a[i]*a[j]/gcd(a[i],a[j]);
+            ans = min(ans,lcm);
+        }
+    }
+    cout<<ans<<endl;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);    
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
