@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+     int n;
+     cin>>n;
+     int a[n];
+     for(int i=0;i<n;i++)
+     {
+         cin>>a[i];
+     }
+     sort(a,a+n);
+     ll sump1=a[n-1];
+     ll sump2=a[n-3]+a[n-2];
+     for(int i=n-4;i>=0;i-=2)
+     {
+        sump1+=a[i];
+     }
+     for(int i=n-5;i>=0;i-=2)
+     {
+         sump2+=a[i];
+     }
+     if(sump1>sump2)
+     cout<<"first"<<endl;
+     else if(sump1<sump2)
+     cout<<"second"<<endl;
+     else
+     cout<<"draw"<<endl;
+    }
+}
