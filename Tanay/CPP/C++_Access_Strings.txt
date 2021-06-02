@@ -1,3 +1,4 @@
+
 C++ Access Strings
 Access Strings
 You can access the characters in a string by referring to its index number inside square brackets [].
